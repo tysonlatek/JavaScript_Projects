@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+        <p id="XML_Example"></p>
+        <script>
+            var XML_Parser, XML_Document;
+
+            // Creates a text string
+            var Movie = "<movie>" +
+            "<title>Schindler\'s List</title>" +
+            "<director>Steven Spielberg</director>" +
+            "<starring>Liam Neeson</starring>" +
+            "<year>1993</year>" +
+            "</movie>";
+
+            // Creates a XML DOM Parser
+            XML_Parser = new DOMParser();
+
+            // Creates a new XML DOM object using the text sring
+            XML_Document = XML_Parser.parseFromString(Movie,"text/xml");
+
+            document.getElementById("XML_Example").innerHTML = 
+            XML_Document.getElementsByTagName("year")[0].childNodes[0].nodeValue;
+
+        </script>
+        
+    </body>
+</html>
